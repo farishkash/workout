@@ -3,7 +3,7 @@ RSpec.feature "adding cardio exercise"  do
 
 	scenario "allow user to add cardio exercise" do
 
-     visit new_cardio_exercise_path
+     visit new_tracker_cardio_exercise_path
 
      fill_in "Exercise Name", with: "Treadmill"
      fill_in "Length in Minutes", with: 50

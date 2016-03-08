@@ -9,7 +9,7 @@ RSpec.feature "edit cardio exercise" do
 
 	scenario "allow user to edit exercise" do
 
-	visit cardio_exercise_path(@exercise)
+	visit tracker_cardio_exercise_path(@exercise)
 
 	
 	

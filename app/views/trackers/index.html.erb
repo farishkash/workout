@@ -1,0 +1,7 @@
+<%= form_for(@workout) do |f| %>
+<%= f.submit "Add Workout" %>
+<% end %>
+
+<% @workouts.each do |workout| %>
+	<%= workout.workout_date %>
+	<% end %>
