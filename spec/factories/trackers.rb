@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :tracker do
-    workout_day "2016-02-21"
+    workout_date Date.today
+    id 1
   end
 end

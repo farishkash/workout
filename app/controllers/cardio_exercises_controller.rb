@@ -1,38 +1,44 @@
 class CardioExercisesController < ApplicationController
-  before_action :find_exercise, only: [:show, :edit, :update]
+  #before_action :find_exercise, only: [:show, :edit, :update]
 
   def index
-    @exercises = CardioExercise.all
+    
   end
 
   def new
-    @exercise = CardioExercise.new
+    @tracker = Tracker.find(params[:tracker_id])
+    @cardio_exercise = @tracker.cardio_exercises.build
   end
 
   def create
-    @exercise = CardioExercise.create(cardioexercise_params)
-    if @exercise.save
+    @tracker = Tracker.find(params[:tracker_id])
+    @cardio_exercise = @tracker.cardio_exercises.create(cardioexercise_params)
+    if @cardio_exercise.save
       flash[:notice]="The exercise has been added"
-      redirect_to @exercise
+      redirect_to [@tracker, @cardio_exercise]
     else
       render 'new'
     end
   end
 
   def show
-    
+    @tracker = Tracker.find(params[:tracker_id])
+    @cardio_exercise = @tracker.cardio_exercises.find(params[:id])
+
   end
 
   def edit
-   
+  @tracker = Tracker.find(params[:tracker_id])
+  @cardio_exercise = @tracker.cardio_exercises.find(params[:id])
   end
 
   def update
-    
+    @tracker = Tracker.find(params[:tracker_id])
+    @cardio_exercise = @tracker.cardio_exercises.build
 
-    if@exercise.update_attributes(cardioexercise_params)
+    if@cardio_exercise.update_attributes(cardioexercise_params)
       flash[:notice]="The exercise has been updated"
-      redirect_to @exercise
+      redirect_to @cardio_exercise
     else
       render 'edit'
     end   
@@ -42,7 +48,7 @@ class CardioExercisesController < ApplicationController
   private
 
   def find_exercise
-    @exercise = CardioExercise.find(params[:id])
+    @cardio_exercise = CardioExercise.find(params[:id])
   end
 
   def cardioexercise_params

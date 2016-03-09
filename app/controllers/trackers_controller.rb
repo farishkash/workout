@@ -4,7 +4,12 @@ class TrackersController < ApplicationController
 		@workout = Tracker.new
 	end
 
+	def new
+		@workout = Tracker.new
+	end
+
 	def create
+
 		@workout = Tracker.create
 		if@workout.save
 			redirect_to @workout
@@ -14,5 +19,9 @@ class TrackersController < ApplicationController
 	end
 	def show
 		@workout = Tracker.find(params[:id])
+	end
+	private
+	def tracker_params
+		params.require(:tracker).permit(:workout_date)
 	end
 end
