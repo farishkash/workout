@@ -38,7 +38,7 @@ class CardioExercisesController < ApplicationController
 
     if@cardio_exercise.update_attributes(cardioexercise_params)
       flash[:notice]="The exercise has been updated"
-      redirect_to @cardio_exercise
+      redirect_to [@tracker, @cardio_exercise]
     else
       render 'edit'
     end   
