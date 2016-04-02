@@ -1,0 +1,13 @@
+<%=form_for [@tracker, @strength_exercise] do |f| %>
+  <%=f.label :strength_exercise_name, "Exercise Name" %>
+  <%=f.text_field :strength_exercise_name, placeholder: "Enter Here" %>
+
+  <%=f.label :sets, "Number of Sets" %>
+  <%=f.text_field :sets %>
+
+  <%=f.label :reps, "Number of Reps" %>
+  <%=f.text_field :reps %>
+
+  <%=f.submit "Add Exercise" %>
+
+  <% end %>

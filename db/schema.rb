@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308051032) do
+ActiveRecord::Schema.define(version: 20160402180019) do
 
   create_table "cardio_exercises", force: :cascade do |t|
     t.string   "cardio_exercise_name"
@@ -30,7 +30,11 @@ ActiveRecord::Schema.define(version: 20160308051032) do
     t.integer  "reps"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "weight"
+    t.integer  "tracker_id"
   end
+
+  add_index "strength_exercises", ["tracker_id"], name: "index_strength_exercises_on_tracker_id"
 
   create_table "trackers", force: :cascade do |t|
     t.date     "workout_date"

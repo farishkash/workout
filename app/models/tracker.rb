@@ -2,6 +2,7 @@ class Tracker < ActiveRecord::Base
 	before_save :set_date
 
 	has_many :cardio_exercises
+	has_many :strength_exercises
 
 	private
 	def set_date

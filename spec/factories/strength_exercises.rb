@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :strength_exercise do
-    strength_exercise_name "MyString"
-    sets 1
-    reps 1
+    strength_exercise_name "Bench Press"
+    sets 3
+    reps 8
   end
 end
