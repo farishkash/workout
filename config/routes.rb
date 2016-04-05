@@ -2,9 +2,19 @@ Rails.application.routes.draw do
 
   root 'trackers#index'
   resources :trackers do
+    member do
+    get "add_cardio" => "trackers#add_cardio", :as => "add_cardio"
+    post 'save_cardio'
+  end
     resources :cardio_exercises
+
     resources :strength_exercises
   end
+
+  
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

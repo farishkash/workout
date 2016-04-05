@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402180019) do
+ActiveRecord::Schema.define(version: 20160403023742) do
 
   create_table "cardio_exercises", force: :cascade do |t|
     t.string   "cardio_exercise_name"
@@ -38,8 +38,13 @@ ActiveRecord::Schema.define(version: 20160402180019) do
 
   create_table "trackers", force: :cascade do |t|
     t.date     "workout_date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "cardio_exercise_id"
+    t.integer  "strength_exercise_id"
   end
+
+  add_index "trackers", ["cardio_exercise_id"], name: "index_trackers_on_cardio_exercise_id"
+  add_index "trackers", ["strength_exercise_id"], name: "index_trackers_on_strength_exercise_id"
 
 end

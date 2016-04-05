@@ -9,12 +9,35 @@ class TrackersController < ApplicationController
 	def new
 		@tracker = Tracker.new
 		@cardio_exercise = @tracker.cardio_exercises.build
-		
+		#@tracker.strength_exercises.build
 
 
 
 	end
 
+	def add_cardio
+		@tracker = Tracker.find(params[:id])
+		#@tracker = Tracker.new
+		@cardio_exercise =  @tracker.cardio_exercises.build
+          respond_to do |format|
+            format.js { render partial: 'showcardio' }
+          end
+       end
+
+       def save_cardio
+       	 @tracker = Tracker.find(params[:id])
+         @cardio_exercise = @tracker.cardio_exercises.create(params[:cardio_exercises_attributes])
+            #@cardio_exercise = @tracker.cardio_exercises.build
+           if @cardio_exercise.save
+             flash[:success] = "The exercise has been added."
+             redirect_to tracker_path(@tracker)
+           else
+   	         render tracker_path(@tracker)
+           end
+       end
+
+	def cardio
+	end
 
 	def create
 

@@ -1,13 +1,15 @@
 class CardioExercisesController < ApplicationController
   #before_action :find_exercise, only: [:show, :edit, :update]
+  respond_to :html, :js
 
   def index
     
   end
 
   def new
+    @cardio_exercise = CardioExercise.new
     @tracker = Tracker.find(params[:tracker_id])
-    @cardio_exercise = @tracker.cardio_exercises.build
+    
   end
 
   def create
@@ -15,7 +17,7 @@ class CardioExercisesController < ApplicationController
     @cardio_exercise = @tracker.cardio_exercises.create(cardioexercise_params)
     if @cardio_exercise.save
       flash[:notice]="The exercise has been added"
-      redirect_to [@tracker, @cardio_exercise]
+      redirect_to (@tracker)
     else
       render 'new'
     end
@@ -24,6 +26,7 @@ class CardioExercisesController < ApplicationController
   def show
     @tracker = Tracker.find(params[:tracker_id])
     @cardio_exercise = @tracker.cardio_exercises.find(params[:id])
+    @cardio_exercises = @tracker.cardio_exercises
 
   end
 
@@ -38,7 +41,7 @@ class CardioExercisesController < ApplicationController
 
     if@cardio_exercise.update_attributes(cardioexercise_params)
       flash[:notice]="The exercise has been updated"
-      redirect_to [@tracker, @cardio_exercise]
+      redirect_to (@tracker)
     else
       render 'edit'
     end   

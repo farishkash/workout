@@ -3,7 +3,7 @@
 <%= cardio_exercise.cardio_exercise_name %>
 <% end %>
 
-<%= link_to 'Add Cardio Exercise', new_tracker_cardio_exercise_path(:tracker_id => @tracker.id),'data-no-turbolink' => true, remote: true  %>
+<%= link_to 'Add Cardio Exercise', add_cardio_tracker_path(@tracker, @cardio_exercise), 'data-no-turbolink' => true, remote: true  %>
 
 <div id="cardio-form" style="display:none;"></div>
 

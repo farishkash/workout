@@ -1,0 +1,22 @@
+<div class="addcardio">
+<%=form_for([@tracker, @cardio_exercise], url: save_cardio_tracker_path) do |f| %>
+  
+
+  <%=f.label :cardio_exercise_name, "Exercise Name" %>
+  <%=f.text_field :cardio_exercise_name, placeholder: "Enter Here" %>
+
+  <%=f.label :time_minutes, "Length in Minutes" %>
+  <%=f.text_field :time_minutes %>
+
+  <%=f.label :calories_burned, "Calories Burned" %>
+  <%=f.text_field :calories_burned %>
+
+
+  <%=f.submit "Save" %>
+
+  <% end %>
+
+  
+  
+
+</div>

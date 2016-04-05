@@ -1,0 +1,90 @@
+<div class="addcardio">
+<%= form_for @tracker, action: "new",remote: true do |f| %>
+
+<%= f.fields_for :cardio_exercises do |cardio_exercise| %>
+
+  <%=cardio_exercise.label :cardio_exercise_name, "Exercise Name" %>
+  <%=cardio_exercise.text_field :cardio_exercise_name, placeholder: "Enter Here" %>
+
+  <%=cardio_exercise.label :time_minutes, "Length in Minutes" %>
+  <%=cardio_exercise.text_field :time_minutes %>
+
+  <%=cardio_exercise.label :calories_burned, "Calories Burned" %>
+  <%=cardio_exercise.text_field :calories_burned %>
+
+  <%=cardio_exercise.submit "Save" %>
+
+  <% end %>
+</div>
+<% end %> 
+
+
+
+<div class="addcardio">
+<%=form_for(@cardio_exercise, url: save_cardio_tracker_path) do |f| %>
+  
+
+  <%=f.label :cardio_exercise_name, "Exercise Name" %>
+  <%=f.text_field :cardio_exercise_name, placeholder: "Enter Here" %>
+
+  <%=f.label :time_minutes, "Length in Minutes" %>
+  <%=f.text_field :time_minutes %>
+
+  <%=f.label :calories_burned, "Calories Burned" %>
+  <%=f.text_field :calories_burned %>
+
+
+  <%=f.submit "Save" %>
+
+  <% end %>
+
+  
+  
+
+</div>
+
+<div class="addcardio">
+<%=form_for([@tracker, @cardio_exercise], url: save_cardio_tracker_path) do |f| %>
+  
+
+  <%=f.label :cardio_exercise_name, "Exercise Name" %>
+  <%=f.text_field :cardio_exercise_name, placeholder: "Enter Here" %>
+
+  <%=f.label :time_minutes, "Length in Minutes" %>
+  <%=f.text_field :time_minutes %>
+
+  <%=f.label :calories_burned, "Calories Burned" %>
+  <%=f.text_field :calories_burned %>
+
+
+  <%=f.submit "Save" %>
+
+  <% end %>
+
+  
+  
+
+</div>
+
+
+<div class="addcardio">
+<%=form_for(@tracker, url: save_cardio_tracker_path) do |f| %>
+  <%= f.fields_for :cardio_exercises do |cardio_exercise| %>
+
+  <%=cardio_exercise.label :cardio_exercise_name, "Exercise Name" %>
+  <%=cardio_exercise.text_field :cardio_exercise_name, placeholder: "Enter Here" %>
+
+  <%=cardio_exercise.label :time_minutes, "Length in Minutes" %>
+  <%=cardio_exercise.text_field :time_minutes %>
+
+  <%=cardio_exercise.label :calories_burned, "Calories Burned" %>
+  <%=cardio_exercise.text_field :calories_burned %>
+
+  
+
+  <% end %>
+<%=f.submit "Save" %>
+  
+  <% end %>
+
+</div>

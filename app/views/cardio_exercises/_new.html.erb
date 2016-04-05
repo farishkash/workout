@@ -1,3 +1,4 @@
+<div class="addcardio">
 <%=form_for [@tracker, @cardio_exercise] do |f| %>
   <%=f.label :cardio_exercise_name, "Exercise Name" %>
   <%=f.text_field :cardio_exercise_name, placeholder: "Enter Here" %>
@@ -8,6 +9,7 @@
   <%=f.label :calories_burned, "Calories Burned" %>
   <%=f.text_field :calories_burned %>
 
-  <%=f.submit "Add Exercise" %>
+  <%=f.submit "Save" %>
 
   <% end %>
+</div>

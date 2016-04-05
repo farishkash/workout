@@ -1,7 +1,7 @@
-<%= form_for(@workout) do |f| %>
+<%= form_for(@tracker) do |f| %>
 <%= f.submit "Add Workout" %>
 <% end %>
 
-<% @workouts.each do |workout| %>
-	<%= workout.workout_date %>
+<% @trackers.each do |tracker| %>
+	<%= tracker.workout_date %><%= link_to "View Workout",tracker_path(tracker) %>
 	<% end %>
