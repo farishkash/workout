@@ -9,36 +9,30 @@ class TrackersController < ApplicationController
 	def new
 		@tracker = Tracker.new
 		@cardio_exercise = @tracker.cardio_exercises.build
-		
-
-
-
 	end
 
 
 	def create
 
 		@tracker= Tracker.create
-		if@tracker.save
+		  if@tracker.save
 			redirect_to tracker_path(@tracker)
-		else
+		  else
 			render '/'
-		end
+		  end
 	end
 
 	def update
-		@tracker = Tracker.find(params[:id])
-		@cardio_exercise = 
-		@tracker =Tracker.find(params[:tracker_id])
-		 if @tracker.update_attributes(tracker_params)
-      flash[:success] = "The exercise has been added."
-       redirect_to tracker_path(@tracker)
-  end
+        @tracker = Tracker.find(params[:id])
+	      if @tracker.update_attributes(tracker_params)
+            redirect_to tracker_path(@tracker)
+          else
+            render 'edit'
+          end
 	end
 
 	def show
 		@tracker = Tracker.find(params[:id])
-		#@cardio_exercise = @tracker.cardio_exercises.build
 		@cardio_exercises = @tracker.cardio_exercises
 
 	end

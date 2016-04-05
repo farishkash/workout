@@ -21,7 +21,7 @@ class StrengthExercisesController < ApplicationController
     def show
     
       @tracker = Tracker.find(params[:tracker_id])
-      @cardio_exercise = @tracker.cardio_exercises.find(params[:id])
+      
       @strength_exercise = @tracker.strength_exercises.find(params[:id])
 
     end

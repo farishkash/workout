@@ -7,7 +7,7 @@ RSpec.feature "edit cardio exercise" do
 
 	#end
     let(:tracker){create(:tracker)}
-    #let(:cardio_exercise){create(:cardio_exercise, tracker: tracker)}
+    let(:cardio_exercise){create(:cardio_exercise, tracker: tracker)}
 
 
 	scenario "allow user to edit exercise" do
