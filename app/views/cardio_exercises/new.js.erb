@@ -1,2 +1,11 @@
 $("#cardio-form").html("<%= j (render 'new') %>")
 $("#cardio-form").slideDown(500)
+
+
+$(function() {
+  $('.hideme').click(function(event){
+    event.preventDefault();
+    $("#cardio-form").slideUp(500);
+    
+  });
+});  

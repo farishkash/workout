@@ -9,7 +9,7 @@
   <%=f.label :calories_burned, "Calories Burned" %>
   <%=f.text_field :calories_burned %>
 
-  <%=f.submit "Save" %>
+  <%=f.submit "Save", class:"btn btn-primary" %> <%= link_to 'Cancel', tracker_path(@tracker), class:"btn btn-danger hideme", remote: true %>
 
   <% end %>
 </div>

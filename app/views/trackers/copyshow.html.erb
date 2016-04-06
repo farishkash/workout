@@ -1,9 +1,0 @@
-<%= @tracker.workout_date %>
-<% @cardio_exercises.each do |cardio_exercise| %>
-<%= cardio_exercise.cardio_exercise_name %>
-<% end %>
-
-<%= link_to 'Add Cardio Exercise', add_cardio_tracker_path(@tracker, @cardio_exercise), 'data-no-turbolink' => true, remote: true  %>
-
-<div id="cardio-form" style="display:none;"></div>
-
