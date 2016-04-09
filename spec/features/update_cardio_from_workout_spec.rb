@@ -6,16 +6,16 @@ RSpec.feature "edit cardio exercise" do
     let(:cardio_exercise){create(:cardio_exercise, tracker: tracker)}
 
 
-	scenario "allow user to edit exercise" do
 
-	#visit tracker_cardio_exercise_path([@tracker, @cardio_exercise])
-	visit tracker_cardio_exercise_path(cardio_exercise.tracker, cardio_exercise)
+	scenario "allow user to edit cardio exercise from workout tracker",  js: true do
+
+	visit tracker_path(tracker, cardio_exercise)
 
 	
 	
 	expect(page).to have_content "Treadmill"
 
-	click_on "Edit Exercise"
+	find("i.fa.fa-pencil-square-o").click
 
 	
 	fill_in "Exercise Name", with: "Bicycle"

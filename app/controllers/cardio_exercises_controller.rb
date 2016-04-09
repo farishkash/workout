@@ -1,10 +1,11 @@
 class CardioExercisesController < ApplicationController
-  before_action :find_tracker, only:  [:new, :create, :show, :edit, :update]
-  before_action :find_cardio_exercise, only: [:show, :edit]
+  before_action :find_tracker, only:  [:new, :create, :show, :edit, :update, :destroy]
+  before_action :find_cardio_exercise, only: [:show, :edit, :update, :destroy]
 
   respond_to :html, :js
 
   def index
+    @cardio_exercises = CardioExercise.all
     
   end
 
@@ -32,16 +33,22 @@ class CardioExercisesController < ApplicationController
   end
 
   def update
-    @cardio_exercise = @tracker.cardio_exercises.build
 
       if@cardio_exercise.update_attributes(cardioexercise_params)
         flash[:notice]="The exercise has been updated"
-        redirect_to [@tracker, @cardio_exercise]
+        redirect_to (@tracker)
+        
       else
         render 'edit'
       end   
   end
   
+  def destroy
+    @cardio_exercise.destroy
+    flash[:notice]="The cardio exercise has been deleted"
+    redirect_to(@tracker)
+
+  end
 
   private
 
