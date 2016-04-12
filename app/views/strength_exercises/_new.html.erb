@@ -1,0 +1,18 @@
+<div class="container">
+<%=form_for [@tracker, @strength_exercise] do |f| %>
+  <%=f.label :strength_exercise_name, "Exercise Name" %>
+  <%=f.text_field :strength_exercise_name, placeholder: "Enter Here" %>
+
+  <%=f.label :sets, "Number of Sets" %>
+  <%=f.text_field :sets %>
+
+  <%=f.label :reps, "Number of Reps" %>
+  <%=f.text_field :reps %>
+
+  <%=f.label :weight, "Weight" %>
+  <%=f.text_field :weight %>
+
+  <%=f.submit "Save", class:"btn btn-primary spaceleft" %> <%= link_to 'Cancel', tracker_path(@tracker), class:"btn btn-danger hideme spaceleft", remote: true %>
+
+  <% end %>
+</div>
