@@ -16,7 +16,7 @@ class CardioExercisesController < ApplicationController
   def create
     @cardio_exercise = @tracker.cardio_exercises.create(cardioexercise_params)
     if @cardio_exercise.save
-      flash[:notice]="The exercise has been added"
+      flash[:success]="The exercise has been added"
       redirect_to (@tracker)
     else
       render 'new'
@@ -34,7 +34,7 @@ class CardioExercisesController < ApplicationController
   def update
 
     if@cardio_exercise.update_attributes(cardioexercise_params)
-      flash[:notice]="The exercise has been updated"
+      flash[:success]="The exercise has been updated"
       redirect_to (@tracker)
 
     else
@@ -44,7 +44,7 @@ class CardioExercisesController < ApplicationController
 
   def destroy
     @cardio_exercise.destroy
-    flash[:notice]="The cardio exercise has been deleted"
+    flash[:success]="The cardio exercise has been deleted"
     redirect_to(@tracker)
 
   end

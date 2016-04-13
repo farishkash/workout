@@ -18,7 +18,7 @@ RSpec.feature "adding strength exercise"  do
      click_on "Add Exercise"
 
      expect(page).to have_content Date.today
-     expect(page).to have_content "The exercise has been added"
+     expect(page).to have_content "The strength exercise has been added"
      expect(page).to have_content "Bench Press"
      expect(page).to have_content 3
      expect(page).to have_content 5

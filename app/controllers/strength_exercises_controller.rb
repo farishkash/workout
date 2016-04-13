@@ -12,12 +12,29 @@ class StrengthExercisesController < ApplicationController
     @strength_exercise = @tracker.strength_exercises.create(strengthexercise_params)
 
     if @strength_exercise.save
-      flash[:notice]="The strength exercise has been added"
+      flash[:success]="The strength exercise has been added"
       redirect_to (@tracker)
 
     else
 
       render 'new'
+    end
+  end
+
+  def edit
+    @tracker = Tracker.find(params[:tracker_id])
+    @strength_exercise = @tracker.strength_exercises.find(params[:id])
+  end
+
+  def update
+    @tracker = Tracker.find(params[:tracker_id])
+    @strength_exercise = @tracker.strength_exercises.find(params[:id])
+
+    if@strength_exercise.update_attributes(strengthexercise_params)
+      flash[:success] ="The strength exercise has been updated"
+      redirect_to @tracker
+    else
+      render 'edit'
     end
   end
 

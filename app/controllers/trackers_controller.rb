@@ -49,7 +49,6 @@ class TrackersController < ApplicationController
   end
   private
   def tracker_params
-    params.require(:tracker).permit(:workout_date, :cardio_id,
-                                    cardio_exercises_attributes:[:id, :cardio_exercise_name, :time_minutes, :calories_burned, :tracker_id ])
+    params.require(:tracker).permit(:workout_date)
   end
 end

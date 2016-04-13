@@ -1,13 +1,17 @@
 
 <div class="container">
 <div class="panel panel-info">
-<div class="panel-heading"><h3>Workout Date: <%= @tracker.workout_date %></h3>
+<div class="panel-heading"><h3>Workout Date: <%= @tracker.workout_date %></h3><%= link_to 'Add Cardio Exercise', new_tracker_cardio_exercise_path(:tracker_id => @tracker.id),'data-no-turbolink' => true, class: 'btn btn-primary', remote: true  %>
+<%= link_to 'Add Strength Exercise', new_tracker_strength_exercise_path(:tracker_id => @tracker.id),'data-no-turbolink' => true, class: 'btn btn-primary', remote: true  %>
 </div>
+</div>
+<div id="exercise-form" class="spacing" style="display:none;">
+	
 </div>
 
 <% @cardio_exercises.each do |cardio_exercise| %>
 <ul class="list-group">
-<li class="list-group-item"><h4>Exercise Name: <%= cardio_exercise.cardio_exercise_name %></h4><%= link_to edit_tracker_cardio_exercise_path(cardio_exercise.tracker_id, cardio_exercise), class: 'edit', 'data-no-turbolink' => true do%><i class="fa fa-pencil-square-o left spacerright"></i><% end %><%= link_to tracker_cardio_exercise_path(cardio_exercise.tracker_id, cardio_exercise),  method: :delete, data: { confirm: 'Are you sure?', 'data-no-turbolink' => true} do%><i class="fa fa-times left red spacerleft"></i><% end %></li>
+<li class="list-group-item taller"><h4 class="left">Cardio Exercise: <%= cardio_exercise.cardio_exercise_name %></h4><%= link_to tracker_cardio_exercise_path(cardio_exercise.tracker_id, cardio_exercise), method: :delete, data: { confirm: 'Are you sure?', 'data-no-turbolink' => true} do%><i class="fa fa-times fa-2x right red spacerleft"></i><% end %><%= link_to edit_tracker_cardio_exercise_path(cardio_exercise.tracker_id, cardio_exercise), class: 'edit', 'data-no-turbolink' => true do%><i class="fa fa-pencil-square-o fa-2x right spacerright"></i><% end %></li>
  <li class="list-group-item"><h5>Time In Minutes: <%= cardio_exercise.time_minutes %></h5></li>
   <li class="list-group-item"><h5>Calories Burned: <%= cardio_exercise.calories_burned %></h5></li>
  </ul>
@@ -18,7 +22,7 @@
 
 <% @strength_exercises.each do |strength_exercise| %>
 <ul class="list-group">
-<li class="list-group-item"><h4>Exercise Name: <%= strength_exercise.strength_exercise_name %></h4><%= link_to edit_tracker_strength_exercise_path(strength_exercise.tracker_id, strength_exercise), class: 'edit', 'data-no-turbolink' => true do%><i class="fa fa-pencil-square-o left spacerright"></i><% end %><%= link_to tracker_strength_exercise_path(strength_exercise.tracker_id, strength_exercise),  method: :delete, data: { confirm: 'Are you sure?', 'data-no-turbolink' => true} do%><i class="fa fa-times left red spacerleft"></i><% end %></li>
+<li class="list-group-item taller"><h4 class="left">Strength Exercise: <%= strength_exercise.strength_exercise_name %></h4><%= link_to tracker_strength_exercise_path(strength_exercise.tracker_id, strength_exercise),  method: :delete, data: { confirm: 'Are you sure?', 'data-no-turbolink' => true} do%><i class="fa fa-times fa-2x right red spacerleft"></i><% end %> <%= link_to edit_tracker_strength_exercise_path(strength_exercise.tracker_id, strength_exercise), class: 'edit', 'data-no-turbolink' => true do%><i class="fa fa-pencil-square-o fa-2x right spacerright"></i><% end %></li>
  <li class="list-group-item"><h5>Sets: <%= strength_exercise.sets %></h5></li>
   <li class="list-group-item"><h5>Reps: <%= strength_exercise.reps %></h5></li>
   <li class="list-group-item"><h5>Weight: <%= strength_exercise.weight %></h5></li>
@@ -30,12 +34,9 @@
 
 
 
-<%= link_to 'Add Cardio Exercise', new_tracker_cardio_exercise_path(:tracker_id => @tracker.id),'data-no-turbolink' => true, class: 'btn btn-primary', remote: true  %>
-<%= link_to 'Add Strength Exercise', new_tracker_strength_exercise_path(:tracker_id => @tracker.id),'data-no-turbolink' => true, class: 'btn btn-primary', remote: true  %>
 
-<div id="exercise-form" class="topspacing" style="display:none;">
-	
-</div>
+
+
 </div>
 
 
