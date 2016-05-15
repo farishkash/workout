@@ -46,6 +46,15 @@ class StrengthExercisesController < ApplicationController
 
   end
 
+  def destroy
+    @tracker = Tracker.find(params[:tracker_id])
+    @strength_exercise = @tracker.strength_exercises.find(params[:id])
+    @strength_exercise.destroy
+    flash[:success]="The strength exercise has been deleted"
+    redirect_to(@tracker)
+
+  end
+
   private
 
 
